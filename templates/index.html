@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>Video Streaming Demonstration</title>
+</head>
+<body>
+    <h1>Video Streaming Demonstration</h1>
+    
+    <!-- Form to select camera -->
+    <form action="/select_camera" method="POST">
+        <label for="camera_select">Select camera:</label>
+        <select id="camera_select" name="camera">
+            <option value="0">Camera 1</option>
+            <option value="1">Camera 2</option>
+        </select>
+        <input type="submit" value="Start stream">
+    </form>
+
+    <!-- Where to display video streaming -->
+    <img src="{{ url_for('video_feed') }}" onerror="this.onerror=null; this.src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='; document.getElementById('error_message').style.display='block';">
+
+    <!-- Where to display error messages -->
+    <div id="error_message" style="display: none; color: red;">
+        Camera does not exist
+    </div>
+</body>
+</html>
